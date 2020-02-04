@@ -1,0 +1,21 @@
+name: Master Snapshot Build
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    name: Build Docker Image
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: Build Snapshot & Publish to Registry
+        uses: jen20/action-docker-build@v1
+        with:
+          repository: docker.pkg.github.com/pulumi/pulumi-build-container/pulumi-build-container
+          buildkit: true
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+          tag-snapshot: true
+          registry: https://docker.pkg.github.com

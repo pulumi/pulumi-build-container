@@ -1,0 +1,21 @@
+name: Release Build
+on:
+  push:
+    tags:
+      - v*
+
+jobs:
+  build:
+    name: Build Docker Image
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: Build Snapshot & Publish to Registry
+        uses: jen20/action-docker-build@v1
+        with:
+          repository: pulumi/pulumi-build-container
+          buildkit: true
+          username: pulumibot
+          password: ${{ secrets.DOCKER_HUB_PASSWORD }}
+          tag-latest: true
+          additional-tags: ${{ github.ref }}
