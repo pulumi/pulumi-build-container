@@ -18,7 +18,8 @@ apt-get install -y \
 	git \
 	gnupg2 \
 	jq \
-	software-properties-common
+	software-properties-common \
+	unzip
 
 add-apt-repository universe
 apt-get update

@@ -12,8 +12,8 @@ RUN --mount=target=/build-scripts,type=bind,source=scripts \
 
 # Install Go compiler and linter
 RUN --mount=target=/build-scripts,type=bind,source=scripts \
-    GOLANG_VERSION=1.13.7 \
-    GOLANG_SHA256=b3dd4bd781a0271b33168e627f7f43886b4c5d1c794a4015abf34e99c6526ca3 \
+    GOLANG_VERSION=1.14 \
+    GOLANG_SHA256=08df79b46b0adf498ea9f320a0f23d6ec59e9003660b4c9c1ce8e5e2c6f823ca \
     GOLANGCI_LINT_VERSION=1.18.0 \
     /build-scripts/install-go.sh
 
@@ -43,6 +43,17 @@ RUN --mount=target=/build-scripts,type=bind,source=scripts \
     --mount=target=/var/cache/apt,type=cache \
     DOTNET_SDK_VERSION=3.1 \
     /build-scripts/install-dotnet.sh
+
+# Install Protocol Buffers compiler and various GRPC generators
+RUN --mount=target=/build-scripts,type=bind,source=scripts \
+    PROTOC_VERSION=3.11.4 \
+    PROTOC_SHA256=6d0f18cd84b918c7b3edd0203e75569e0c8caecb1367bbbe409b45e28514f5be \
+    PROTOC_GEN_GO_VERSION=1.3.3 \
+    NODEJS_GRPC_VERSION=1.24.2 \
+    NODEJS_GRPC_TOOLS_VERSION=1.8.1 \
+    PYTHON_GRPCIO_VERSION=1.27.2 \
+    PYTHON_GRPCIO_TOOLS_VERSION=1.27.2 \
+    /build-scripts/install-protobuf-tools.sh
 
 # Install Pulumi build tools
 RUN --mount=target=/build-scripts,type=bind,source=scripts \
