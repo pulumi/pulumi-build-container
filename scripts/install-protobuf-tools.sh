@@ -32,8 +32,8 @@ rm -rf /tmp/protoc.zip
 # Install protoc-gen-go
 pushd /tmp
 git clone https://github.com/golang/protobuf -b "v${PROTOC_GEN_GO_VERSION}" --single-branch --depth 1
-pushd /tmp/protobuf/protoc-gen-go
-/usr/local/go/bin/go install
+pushd /tmp/protobuf
+GOBIN=/usr/local/bin /usr/local/go/bin/go install github.com/golang/protobuf/protoc-gen-go
 popd
 rm -rf /tmp/protobuf
 

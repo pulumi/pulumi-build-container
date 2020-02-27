@@ -23,4 +23,4 @@ tar -C /usr/local/bin -xzf /tmp/tf2pulumi.tar.gz
 rm /tmp/tf2pulumi.tar.gz
 
 # Install gomod-doccopy
-/usr/local/go/bin/go get -v github.com/pulumi/scripts/gomod-doccopy
+GOBIN=/usr/local/bin /usr/local/go/bin/go get -v github.com/pulumi/scripts/gomod-doccopy

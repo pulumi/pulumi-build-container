@@ -35,4 +35,4 @@ curl -sfL https://install.goreleaser.com/github.com/golangci/golangci-lint.sh | 
 #
 # gocovmerge does not publish versioned releases, but it also hasn't been updated
 # in two years, so getting HEAD is pretty safe.
-/usr/local/go/bin/go get -v github.com/wadey/gocovmerge
+GOBIN=/usr/local/bin /usr/local/go/bin/go get -v github.com/wadey/gocovmerge
