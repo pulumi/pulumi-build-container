@@ -21,7 +21,7 @@ RUN --mount=target=/build-scripts,type=bind,source=scripts \
 RUN --mount=target=/build-scripts,type=bind,source=scripts \
     --mount=target=/var/lib/apt/lists,type=cache \
     --mount=target=/var/cache/apt,type=cache \
-    NODE_VERSION=12.x \
+    NODE_VERSION=12.16.2 \
     NODE_DISTRO=bionic \
     YARN_VERSION=1.22.4 \
     /build-scripts/install-node.sh
