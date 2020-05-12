@@ -12,25 +12,25 @@ RUN --mount=target=/build-scripts,type=bind,source=scripts \
 
 # Install Go compiler and linter
 RUN --mount=target=/build-scripts,type=bind,source=scripts \
-    GOLANG_VERSION=1.14 \
-    GOLANG_SHA256=08df79b46b0adf498ea9f320a0f23d6ec59e9003660b4c9c1ce8e5e2c6f823ca \
-    GOLANGCI_LINT_VERSION=1.18.0 \
+    GOLANG_VERSION=1.13.10 \
+    GOLANG_SHA256=8a4cbc9f2b95d114c38f6cbe94a45372d48c604b707db2057c787398dfbf8e7f \
+    GOLANGCI_LINT_VERSION=1.23.8 \
     /build-scripts/install-go.sh
 
 # Install Node.js and Yarn
 RUN --mount=target=/build-scripts,type=bind,source=scripts \
     --mount=target=/var/lib/apt/lists,type=cache \
     --mount=target=/var/cache/apt,type=cache \
-    NODE_VERSION=10.x \
+    NODE_VERSION=12.x \
     NODE_DISTRO=bionic \
-    YARN_VERSION=1.21.1 \
+    YARN_VERSION=1.22.4 \
     /build-scripts/install-node.sh
 
 # Install Python and accoutrements
 RUN --mount=target=/build-scripts,type=bind,source=scripts \
     --mount=target=/var/lib/apt/lists,type=cache \
     --mount=target=/var/cache/apt,type=cache \
-    PYTHON_VERSION=3.7 \
+    PYTHON_VERSION=3.8 \
     PIPENV_VERSION=2018.11.26 \
     AWSCLI_VERSION=1.17.9 \
     WHEEL_VERSION=0.34.2 \
@@ -57,8 +57,8 @@ RUN --mount=target=/build-scripts,type=bind,source=scripts \
 
 # Install Pulumi build tools
 RUN --mount=target=/build-scripts,type=bind,source=scripts \
-    TF2PULUMI_VERSION=0.6.0 \
-    TF2PULUMI_SHA256=9a8fdfc590f8813a5ccaf1bfb1abba3064f109cce34f47fc66a34adaaa44c50f \
+    TF2PULUMI_VERSION=0.8.0 \
+    TF2PULUMI_SHA256=0019dfc4b32d63c1392aa264aed2253c1e0c2fb09216f8e2cc269bbfb8bb49b5 \
     /build-scripts/install-pulumi-tools.sh
 
 # Set various required environment variables
