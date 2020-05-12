@@ -12,8 +12,8 @@ RUN --mount=target=/build-scripts,type=bind,source=scripts \
 
 # Install Go compiler and linter
 RUN --mount=target=/build-scripts,type=bind,source=scripts \
-    GOLANG_VERSION=1.13 \
-    GOLANG_SHA256=08df79b46b0adf498ea9f320a0f23d6ec59e9003660b4c9c1ce8e5e2c6f823ca \
+    GOLANG_VERSION=1.13.10 \
+    GOLANG_SHA256=8a4cbc9f2b95d114c38f6cbe94a45372d48c604b707db2057c787398dfbf8e7f \
     GOLANGCI_LINT_VERSION=1.23.8 \
     /build-scripts/install-go.sh
 
