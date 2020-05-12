@@ -58,7 +58,7 @@ RUN --mount=target=/build-scripts,type=bind,source=scripts \
 # Install Pulumi build tools
 RUN --mount=target=/build-scripts,type=bind,source=scripts \
     TF2PULUMI_VERSION=0.8.0 \
-    TF2PULUMI_SHA256=e4977893339949d11b79bdefdd3d011c59fd7bc5456e6f991ad055a4a5657b32\
+    TF2PULUMI_SHA256=0019dfc4b32d63c1392aa264aed2253c1e0c2fb09216f8e2cc269bbfb8bb49b5 \
     /build-scripts/install-pulumi-tools.sh
 
 # Set various required environment variables
