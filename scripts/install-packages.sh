@@ -4,6 +4,10 @@ set -o errexit
 set -o pipefail
 set -o xtrace
 
+# Reduce apt deps
+echo 'APT::Install-Recommends "0";' >> /etc/apt/apt.conf
+echo 'APT::Install-Suggests "0";' >> /etc/apt/apt.conf
+
 SCRIPT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" > /dev/null 2>&1 && pwd)"
 #shellcheck source=utils.sh
 source "${SCRIPT_ROOT}/utils.sh"

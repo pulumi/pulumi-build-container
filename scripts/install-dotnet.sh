@@ -19,6 +19,6 @@ rm packages-microsoft-prod.deb
 
 apt-get update
 
-apt-get install -y \
+apt-get install --no-install-recommends -y \
 	"dotnet-sdk-${DOTNET_SDK_VERSION}" \
 	"aspnetcore-runtime-${DOTNET_SDK_VERSION}"

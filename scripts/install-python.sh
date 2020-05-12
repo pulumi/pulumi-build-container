@@ -17,10 +17,10 @@ ensureSet "${TWINE_VERSION}" "TWINE_VERSION" || exit 1
 export DEBIAN_FRONTEND=noninteractive
 
 apt-get update
-apt-get install -y "python${PYTHON_VERSION}" python3-pip
+apt-get install -y "python${PYTHON_VERSION}" python3-pip python3-setuptools --no-install-recommends
 update-alternatives --install /usr/bin/python3 python3 "/usr/bin/python${PYTHON_VERSION}" 1
 python3 --version
 
-pip3 install --user "pipenv==${PIPENV_VERSION}"
-pip3 install --user "awscli==${AWSCLI_VERSION}"
-pip3 install --user "wheel==${WHEEL_VERSION}" "twine==${TWINE_VERSION}"
+pip3 install --no-cache --user "pipenv==${PIPENV_VERSION}"
+pip3 install --no-cache --user "awscli==${AWSCLI_VERSION}"
+pip3 install --no-cache --user "wheel==${WHEEL_VERSION}" "twine==${TWINE_VERSION}"
