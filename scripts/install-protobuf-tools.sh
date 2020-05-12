@@ -37,6 +37,8 @@ GOBIN=/usr/local/bin /usr/local/go/bin/go install github.com/golang/protobuf/pro
 popd
 rm -rf /tmp/protobuf
 
+# See https://github.com/grpc/grpc-node/issues/922#issuecomment-610972948 for why
+npm install --unsafe-perm -g request@2.88.2
 # Install Node gRPC Tools
 npm install --unsafe-perm -g "grpc@${NODEJS_GRPC_VERSION}" "grpc-tools@${NODEJS_GRPC_TOOLS_VERSION}"
 
