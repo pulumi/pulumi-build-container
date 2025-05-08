@@ -21,6 +21,6 @@ echo "deb https://deb.nodesource.com/${NODE_REPO} ${NODE_DISTRO} main" > /etc/ap
 echo "deb-src https://deb.nodesource.com/${NODE_REPO} ${NODE_DISTRO} main" >> /etc/apt/sources.list.d/nodesource.list
 
 apt-get update
-apt-get install -y nodejs
+apt-get install -y nodejs --no-install-recommends
 
 curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version "${YARN_VERSION}"
